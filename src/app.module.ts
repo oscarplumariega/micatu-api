@@ -3,6 +3,7 @@ import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AdsModule } from './ads/ads.module';
+import { NestFactory } from '@nestjs/core';
 
 @Module({
   imports: [AdsModule, AuthModule, UsersModule,
@@ -18,4 +19,5 @@ import { AdsModule } from './ads/ads.module';
     })
   ]
 })
+
 export class AppModule {}
