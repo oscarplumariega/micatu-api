@@ -1,18 +1,22 @@
 import { Body, Controller, Delete, Get, Module, Param, Post } from '@nestjs/common';
+import { AdsService } from './ads.service';
 
 @Controller({})
-export class UserController {
+export class AdsController {
+
+    constructor(private adsService: AdsService){}
+
     @Post()
     create(@Body() createUser) {
       return 'This action adds a new user';
     }
     
-    @Get('/users')
+    @Get('/ads')
     getAllUsers(){
-        return 'Todos los usuarios';
+        return this.adsService.getAds();
     }   
     
-    @Delete('/user/:id')
+    @Delete('/ads/:id')
     remove(@Param('id') id: number){
         return `Deleting user ${id}`;
     }

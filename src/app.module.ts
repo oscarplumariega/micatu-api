@@ -1,18 +1,18 @@
 import { Module } from '@nestjs/common';
-import { SalesModule } from './sales/sales.module';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { AdsModule } from './ads/ads.module';
 
 @Module({
-  imports: [SalesModule, AuthModule, UsersModule,
+  imports: [AdsModule, AuthModule, UsersModule,
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: 'localhost',
       port: 3306,
-      username: 'XXXX',
-      password: 'XXXX',
-      database: 'XXXXXX',
+      username: 'root',
+      password: '',
+      database: 'micatu',
       entities: ["dist/**/*.entity{.ts,.js}"],
       synchronize: true,
     })
