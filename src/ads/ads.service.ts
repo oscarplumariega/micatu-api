@@ -13,4 +13,10 @@ export class AdsService {
   getAds(){
     return this.adsRepository.find();
   }
+  deleteAd(id:number){
+    return this.adsRepository.delete(id);
+  }
+  postAd(ad){
+    return this.adsRepository.insert(ad);
+  }
 }

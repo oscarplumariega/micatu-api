@@ -1,14 +1,15 @@
 import { Body, Controller, Delete, Get, Module, Param, Post } from '@nestjs/common';
 import { AdsService } from './ads.service';
+import { CreateAdDto } from './create-ad.dto';
 
 @Controller({})
 export class AdsController {
 
     constructor(private adsService: AdsService){}
 
-    @Post()
-    create(@Body() createUser) {
-      return 'This action adds a new user';
+    @Post('/ads')
+    create(@Body() ad: CreateAdDto) {
+      return this.adsService.postAd(ad);
     }
     
     @Get('/ads')
@@ -18,6 +19,6 @@ export class AdsController {
     
     @Delete('/ads/:id')
     remove(@Param('id') id: number){
-        return `Deleting user ${id}`;
+        return this.adsService.deleteAd(id);
     }
 }

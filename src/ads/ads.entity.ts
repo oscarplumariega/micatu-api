@@ -12,6 +12,9 @@ export class Ad {
     description: string;
 
     @Column()
+    price: number;
+
+    @Column()
     bathrooms: number;
 
     @Column()
